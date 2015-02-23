@@ -39,10 +39,7 @@ class SharedNotebook < Notebook
   end
 
   def add_note(*note)
-    note.each do |note, x|
-    x = Note.new(note.text)
-    x.share
-    @notes.push(x)
-    end
+    super
+    @notes.map { |n| n.share }
   end
 end
